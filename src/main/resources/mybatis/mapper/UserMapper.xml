@@ -9,4 +9,21 @@
     <select id="queryUserByName" resultType="Map" parameterType="string">
         SELECT * FROM sys_user WHERE user_name = #{username}
     </select>
+    
+    <insert id="insertComment" parameterType="list">
+        INSERT INTO qqmusic_comment
+        (comment_id, comment_user_id, comment_user_name, comment_content, comment_time, comment_user_icon, song_name)
+        VALUES
+        <foreach collection = "list" item = "comment" index ="index" separator = ",">
+            (
+            #{comment.comment_id},
+            #{comment.comment_user_id},
+            #{comment.comment_user_name},
+            #{comment.comment_content},
+            #{comment.comment_time},
+            #{comment.comment_user_icon},
+            #{comment.song_name}
+            )
+        </foreach>
+    </insert>
 </mapper>

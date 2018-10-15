@@ -21,4 +21,8 @@ public class UserService {
     public Map<String, String> queryUserByName(String username){
         return userDao.queryUserByName(username);
     }
+
+    public void insertComment(List<Map<String, String>> list){
+        userDao.insertComment(list);
+    }
 }
