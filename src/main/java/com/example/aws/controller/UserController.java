@@ -25,7 +25,7 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "queryUserList")
+    @RequestMapping(value = "queryUserList", method = RequestMethod.GET)
     public ResponseEntity queryUserList(){
         List<Map<String, String>> userList = userService.queryUserList();
         JSONObject json = new JSONObject();
@@ -33,7 +33,7 @@ public class UserController {
         return new ResponseEntity<>(json, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "queryUserByName")
+    @RequestMapping(value = "queryUserByName", method = RequestMethod.GET)
     public ResponseEntity queryUserByName(){
         Map<String, String> user = userService.queryUserByName("欧明棋");
         JSONObject json = new JSONObject();
